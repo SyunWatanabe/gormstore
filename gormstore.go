@@ -78,8 +78,11 @@ type gormSession struct {
 type contextKey string
 
 func (gs *gormSession) TableName() string {
-	log.Printf("TableName: %s\n", gs.tableName)
-	return gs.tableName
+	// TableNameは動的な値を取得できない為ハードコーディング
+	// see. https://gorm.io/ja_JP/docs/conventions.html#TableName
+	// log.Printf("TableName: %s\n", gs.tableName)
+	// return gs.tableName
+	return "sessions"
 }
 
 // New creates a new gormstore session
